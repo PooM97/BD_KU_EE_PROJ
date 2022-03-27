@@ -3,6 +3,7 @@ from time import time
 from indicator import IndicatorManager
 from database import DatabaseManager
 from datetime import datetime
+from pprint import pprint
 
 class DataManager():
     def __init__(self, db_config, di_config) -> None:
@@ -16,12 +17,12 @@ class DataManager():
 
     async def pull_data(self):
         task = asyncio.create_task(self.post_data())
-        boxes = di_config['boxes']
+        boxes = db_config['boxes']
         while True:
             start = time()
             payload = {'data': {}}
             for box in boxes:
-                for channel in boxes[box]:
+                for channel in boxes[box]:               
                     no_ch = int(channel[-1]) # ch1 -> 1
                     try:
                         payload['data'][boxes[box][channel]] = self.indi.read_pv(box, no_ch)
@@ -29,9 +30,9 @@ class DataManager():
                         print('failed')
             payload['timestamp'] = str(datetime.now().replace(microsecond=0))
             self.payload_list.append(payload)       
-            end = time()         
+            end = time()
             await asyncio.sleep(self.time_interval-(end-start))
-    
+
     async def post_data(self):
         while True:
             if len(self.payload_list) > 0:
@@ -51,6 +52,6 @@ def config_loader(path):
 
 if __name__ == '__main__':
     db_config = config_loader('db_config.yml')
-    di_config = config_loader('di_config.yml')
+    di_config = config_loader('di_config.yml')   
     dm = DataManager(db_config, di_config)
     

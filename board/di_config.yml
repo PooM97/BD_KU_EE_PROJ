@@ -1,5 +1,5 @@
 communication:
-  port: /dev/serial0
+  port: com10
   baudrate: 5
   typecom: 0
 general:
@@ -20,9 +20,9 @@ boxes:
       inv: 0
       inh: null
       inl: null
-      slh: 9999
+      slh: 8500
       sll: 63537
-      alf: 63537
+      alf: 0
       alh: 0
       all: 0
       hys: 0
@@ -43,9 +43,9 @@ boxes:
       inv: 0
       inh: null
       inl: null
-      slh: 9999
+      slh: 8500
       sll: 63537
-      alf: 63537
+      alf: 0
       alh: 0
       all: 0
       hys: 0

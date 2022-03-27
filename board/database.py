@@ -7,12 +7,11 @@ class DatabaseManager():
     async def post(self, payload): 
         async with aiohttp.ClientSession() as session:
             try:
-                async with session.post(f'{self.url}/ts/post', json=payload) as res:
-                    print(payload['timestamp'])                    
+                async with session.post(f'{self.url}/ts/post', json=payload) as res:                                    
                     if not res.ok:
-                        print(res.status, await res.read())                        
-                    return True                          
+                        print(res.status, await res.read())            
+                    return True         
             except:
                 print('Requested error', payload)
-                return False   
+                return False
                 

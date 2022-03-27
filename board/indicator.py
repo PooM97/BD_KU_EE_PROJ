@@ -122,7 +122,7 @@ class IndicatorManager():
     
     def __general_setting(self):
         for setting in self.config['general']:            
-            value = self.config['general'][setting]
+            value = self.config['general'][setting]           
             if value == None:
                         continue  
             register = self.general_register[setting]
@@ -141,28 +141,31 @@ class IndicatorManager():
                         register = self.channel_register[setting] + no_channel
                     else:
                         register = self.channel_register[setting] + no_channel * 19
-                    value = channel[setting]
+                    value = channel[setting]                   
                     if value == None:
                         continue          
                     self.writeIndicator(box_name, register, value)
 
-    def my_boxes(self):         
+    def my_boxes(self):
+        """return list of box name"""
         return list(self.boxes.keys())
 
-    def read_pv(self, box_name:str, channel:int):        
+    def read_pv(self, box_name:str, channel:int):
+        """return process value from channel and box name"""  
         ch = channel-1
         dp_register = 21 + 19*(ch)
         dp = self.readIndicator(box_name, dp_register) # get decimal point
         return self.readIndicator(box_name, ch, dp)
 
     def read_all_pv(self, box_name):
+        """return all process value from box name"""
         value = {}
         for channel in range(6): # read value channel 1-6
             value[f'pv{channel+1}'] = self.read_pv(box_name, channel+1)  
         return value
 
     def read_all_setting(self, box_name):
-        """return all indicator setting"""
+        """return all setting of box"""
         setting = {}
         for i in range(131):
             setting[i] = self.readIndicator(box_name, i)
