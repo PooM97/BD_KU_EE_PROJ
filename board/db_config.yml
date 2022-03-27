@@ -1,0 +1,7 @@
+url: https://sensors-xxolsllgga-as.a.run.app
+timeInterval: 1
+boxes: 
+  box1: 
+    - ch1: 1
+  box2: 
+    - ch4: 2
