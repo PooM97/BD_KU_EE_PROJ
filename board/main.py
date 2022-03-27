@@ -3,7 +3,6 @@ from time import time
 from indicator import IndicatorManager
 from database import DatabaseManager
 from datetime import datetime
-from pprint import pprint
 
 class DataManager():
     def __init__(self, db_config, di_config) -> None:
@@ -54,4 +53,3 @@ if __name__ == '__main__':
     db_config = config_loader('db_config.yml')
     di_config = config_loader('di_config.yml')   
     dm = DataManager(db_config, di_config)
-    

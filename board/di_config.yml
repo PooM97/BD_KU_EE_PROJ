@@ -30,7 +30,7 @@ boxes:
       toff: 0
       opr: 0
   - name: box2
-    address: 1
+    address: 2
     channel: 
     - ch: 4
       display: 1

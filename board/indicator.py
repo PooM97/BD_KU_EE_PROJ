@@ -40,7 +40,7 @@ class IndicatorManager():
     toff            0-60                            Set delay time (Alarm on) when required. (0 - 60s)
     opr             0-3                             Set display operator when required. (none, sum, diff, avg)
     """
-    def __init__(self, config) -> None:
+    def __init__(self, config) -> None:        
         self.config = config
         self.general_register = {            
             'loc': 6,
@@ -88,7 +88,7 @@ class IndicatorManager():
         self.__create_boxes()
         self.__general_setting()
         self.__channel_setting()
-    
+                  
     def __create_boxes(self):
         self.boxes = {}
         for box in self.config['boxes']:            
