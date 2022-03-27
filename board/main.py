@@ -10,13 +10,13 @@ class DataManager():
         self.di_config = di_config
         self.indi = IndicatorManager(self.di_config)
         self.db = DatabaseManager(self.db_config['url'])
-        self.time_interval = self.db_config['timeIntertval']
+        self.time_interval = self.db_config['timeInterval']
         self.payload_list = []
         asyncio.run(self.pull_data())
 
     async def pull_data(self):
         task = asyncio.create_task(self.post_data())
-        boxes = self.db['boxes']
+        boxes = di_config['boxes']
         while True:
             start = time()
             payload = {'data': {}}
@@ -40,7 +40,6 @@ class DataManager():
                 if res_ok:
                     self.payload_list.pop(0)
             await asyncio.sleep(0.01)
-
 
 def config_loader(path):
     try:
