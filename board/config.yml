@@ -4,12 +4,16 @@ communication:
   typecom: 0
 general:
   loc: 0
-  scan: 10
+  scan: 2
+database:
+  url: 'https://sensors-xxolsllgga-as.a.run.app'
+  timeInterval: 10
 boxes:
   - name: box1
     address: 1
-    channel: 
+    channel:
     - ch: 1
+      sensorID: 1
       display: 1
       input: 7
       pvs: 0
@@ -28,11 +32,12 @@ boxes:
       hys: 0
       ton: 0
       toff: 0
-      opr: 0
+      opr: 0   
   - name: box2
     address: 2
     channel: 
     - ch: 4
+      sensorID: 2
       display: 1
       input: 7
       pvs: 0

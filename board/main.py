@@ -1,5 +1,5 @@
-import asyncio, yaml
-from time import time
+import asyncio, yaml, aiohttp
+from time import time, sleep
 from indicator import IndicatorManager
 from database import DatabaseManager
 from datetime import datetime
@@ -21,12 +21,13 @@ class DataManager():
             start = time()
             payload = {'data': {}}
             for box in boxes:
-                for channel in boxes[box]:               
+                for channel in boxes[box]:
                     no_ch = int(channel[-1]) # ch1 -> 1
                     try:
                         payload['data'][boxes[box][channel]] = self.indi.read_pv(box, no_ch)
                     except:
-                        print('failed')
+                        print(f'failed to read channel {no_ch}')
+                    sleep(0.005)
             payload['timestamp'] = str(datetime.now().replace(microsecond=0))
             self.payload_list.append(payload)       
             end = time()
@@ -41,15 +42,5 @@ class DataManager():
                     self.payload_list.pop(0)
             await asyncio.sleep(0.01)
 
-def config_loader(path):
-    try:
-        with open(path, 'r') as f:
-            config = yaml.load(f, Loader=yaml.FullLoader)
-        return config
-    except:        
-        print(f'Cannot loaded {path} file.')
-
-if __name__ == '__main__':
-    db_config = config_loader('db_config.yml')
-    di_config = config_loader('di_config.yml')   
-    dm = DataManager(db_config, di_config)
+if __name__ == '__main__':   
+    dm = DataManager()
