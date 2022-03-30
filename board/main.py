@@ -1,46 +1,53 @@
 import asyncio, yaml, aiohttp
 from time import time, sleep
-from indicator import IndicatorManager
-from database import DatabaseManager
+from indicator import DGIndicator
 from datetime import datetime
 
 class DataManager():
-    def __init__(self, db_config, di_config) -> None:
-        self.db_config = db_config
-        self.di_config = di_config
-        self.indi = IndicatorManager(self.di_config)
-        self.db = DatabaseManager(self.db_config['url'])
-        self.time_interval = self.db_config['timeInterval']
+    def __init__(self, config) -> None:
+        self.dgi = DGIndicator(config)
         self.payload_list = []
+        # database
+        db_config = config['database']
+        self.url = db_config['url']
+        self.time_interval = db_config['timeInterval']
         asyncio.run(self.pull_data())
 
     async def pull_data(self):
-        task = asyncio.create_task(self.post_data())
-        boxes = db_config['boxes']
+        print('Begin sending data...')
+        task = asyncio.create_task(self.requests())
         while True:
             start = time()
             payload = {'data': {}}
-            for box in boxes:
-                for channel in boxes[box]:
-                    no_ch = int(channel[-1]) # ch1 -> 1
+            for box in self.dgi.sensorID:
+                for channel in self.dgi.sensorID[box]:
                     try:
-                        payload['data'][boxes[box][channel]] = self.indi.read_pv(box, no_ch)
-                    except:
-                        print(f'failed to read channel {no_ch}')
-                    sleep(0.005)
-            payload['timestamp'] = str(datetime.now().replace(microsecond=0))
-            self.payload_list.append(payload)       
+                        sensorID = self.dgi.sensorID[box][channel]
+                        payload['data'][sensorID] = self.dgi.read_pv(box, channel)
+                    except:                        
+                        payload['data'][sensorID] = 0 # Error -> sending zero
+                        print(f"Failed to read {box} channel: {channel}.")
+                payload['timestamp'] = str(datetime.now().replace(microsecond=0))                
+                sleep(0.01) # Delay before changing box.
             end = time()
+            self.payload_list.append(payload)
             await asyncio.sleep(self.time_interval-(end-start))
 
-    async def post_data(self):
+    async def requests(self):
         while True:
             if len(self.payload_list) > 0:
                 payload = self.payload_list[0]
-                res_ok = await self.db.post(payload)
-                if res_ok:
-                    self.payload_list.pop(0)
+                async with aiohttp.ClientSession() as session:
+                    try:
+                        async with session.post(f'{self.url}/ts/post', json=payload) as res:                                              
+                            if not res.ok:                                
+                                print(res.status, await res.read())                            
+                            self.payload_list.pop(0)
+                    except:
+                        print('Requested error', payload)
             await asyncio.sleep(0.01)
 
-if __name__ == '__main__':   
-    dm = DataManager()
+if __name__ == '__main__':
+    with open('config.yml', 'r') as f:
+        config = yaml.load(f, Loader=yaml.FullLoader)
+    dm = DataManager(config)

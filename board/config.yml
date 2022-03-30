@@ -1,5 +1,5 @@
 communication:
-  port: com10
+  port: /dev/serial0
   baudrate: 5
   typecom: 0
 general:
