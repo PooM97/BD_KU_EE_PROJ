@@ -1,0 +1,122 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 15vw;
+  height: 100vh;
+  border-right: 0.5px solid #e6e3e3;
+  z-index: 999;
+  overflow-y: scroll;
+  background: #ffffff;
+}
+
+.sidebar .top {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sidebar .top .logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: auto;
+  color: #6439ff;
+  cursor: pointer;
+}
+
+.sidebar hr {
+  height: 0;
+  border: 0.5px solid #e6e3e3;
+}
+
+.sidebar .center {
+  padding-left: 10px;
+}
+
+.sidebar .center ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar .center ul .title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #999;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.sidebar .center ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebar .center ul li:hover {
+  background-color: #ece8ff;
+}
+
+.sidebar .center ul li .icon {
+  font-size: 28px;
+  color: #7451f8;
+}
+
+.sidebar .center ul li span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #888;
+  margin-left: 10px;
+}
+
+.sidebar .bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 22px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 0rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .sidebar {
+    width: 75px;
+  }
+  .sidebar .center {
+    padding: 0px;
+  }
+  .sidebar .center ul {
+    display: inline;
+  }
+  .sidebar .center ul .title {
+    text-align: center;
+  }
+  .sidebar .center ul li {
+    padding: 10px;
+    margin-left: 12px;
+  }
+  .sidebar .center ul li span {
+    display: none;
+  }
+}
+/*# sourceMappingURL=sidebar.css.map */

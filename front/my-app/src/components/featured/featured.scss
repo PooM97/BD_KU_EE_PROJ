@@ -1,0 +1,16 @@
+.featured { 
+    box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 10px;
+    border-radius: 12px;    
+   .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: gray;        
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }    
+}

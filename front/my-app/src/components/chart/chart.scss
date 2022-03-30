@@ -1,0 +1,28 @@
+.chart {
+    display: flex;
+    flex: 5;
+    box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 12px;  
+    color: gray;
+    flex-direction: column;    
+    border-radius: 10px;
+    height: 100%;    
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+    .bottom {        
+        display: flex; 
+        height: 100%;      
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-height: 500px;
+    }
+}

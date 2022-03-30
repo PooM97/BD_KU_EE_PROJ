@@ -1,0 +1,17 @@
+.progressBar {
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    padding-bottom: 5px;    
+    align-items: center;
+   .title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin: 0; 
+        color: gray;          
+    }
+    .subtitle{
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+}    

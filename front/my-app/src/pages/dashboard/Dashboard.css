@@ -1,0 +1,12 @@
+.widgets, .charts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 25px;
+  gap: 10px;
+}
+
+.charts {
+  margin-top: 5px;
+}
+/*# sourceMappingURL=Dashboard.css.map */

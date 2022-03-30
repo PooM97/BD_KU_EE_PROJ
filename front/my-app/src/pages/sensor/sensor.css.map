@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,MAAM,EAAE,SAAS;EACjB,MAAM,EAAE,GAAG;EACX,aAAa,EAAE,CAAC;CAInB;;AAPD,AAII,WAJO,CAIP,cAAc,CAAC;EACX,UAAU,EAAE,IAAI;CACnB;;AAEL,AAAA,WAAW,CAAC;EACR,SAAS,EAAE,MAAM;CACpB",
+    "sources": [
+        "sensor.scss"
+    ],
+    "names": [],
+    "file": "sensor.css"
+}

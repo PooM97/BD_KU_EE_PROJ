@@ -1,0 +1,49 @@
+:root {
+    font-size: 13px;    
+    --text-primary: #fbf8f3;
+    --text-secondary: #24292f;
+    --bg-primary: #ffffff;
+    --bg-secondary: #1a1c1e;
+}
+
+main {  
+    position: fixed;      
+    top: 0;
+    left: 15vw;
+    padding: 0;
+    width: 85vw;
+    height: 100vh;  
+    overflow-x: hidden; 
+    overflow-y: scroll; 
+    background-color: var(--bg-primary);   
+}
+
+main::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+main::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+main::-webkit-scrollbar-thumb {
+    background: #3f2a79;
+}
+
+.headerTitle {
+    margin: 10px 25px;
+}
+
+@media only screen and (max-width: 1200px) {
+    main {
+        left: 75px;       
+        width: 95vw;        
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    main {
+        left: 75px;       
+        width: 90vw;        
+    }
+}
