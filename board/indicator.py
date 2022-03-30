@@ -104,13 +104,14 @@ class DGIndicator():
     
     def __general_setting(self):
         print('general settings...')
-        for setting in self.config['general']:            
-            value = self.config['general'][setting]           
+        for setting in self.config['general']:
+            value = self.config['general'][setting]
             if value == None:
-                continue  
-            register = self.general_register[setting]                    
+                continue
+            register = self.general_register[setting]
             for box in self.boxes:
-                self.writeIndicator(box, register, value)            
+                self.writeIndicator(box, register, value)
+                sleep(0.01)
     
     def __channel_setting(self):
         print('channel settings...')
@@ -121,7 +122,7 @@ class DGIndicator():
             for channel in box['channel']:
                 for setting in channel:
                     if setting == 'ch':
-                        no_channel = channel[setting] - 1 # minus 1 because channel_register is already point to channel 1.
+                        no_channel = channel[setting] - 1 # Minus 1 because channel_register is already point to channel 1.
                         continue
                     elif setting == 'sensorID':
                         self.sensorID[box_name][no_channel + 1] = channel[setting] # channel: sensorID
