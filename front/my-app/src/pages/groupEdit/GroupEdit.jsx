@@ -103,7 +103,7 @@ function GroupEdit() {
                     ID
                 </Form.Label>
                 <Col sm="10">
-                    <Form.Control plaintext readOnly defaultValue={(gname == 'add') ? 'New Group':groupData.id} />
+                    <Form.Control plaintext readOnly defaultValue={(gname === 'add') ? 'New Group':groupData.id} />
                 </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintext">

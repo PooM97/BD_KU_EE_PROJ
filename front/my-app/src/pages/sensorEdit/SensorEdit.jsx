@@ -8,9 +8,9 @@ async function requestSensor(id, set) {
     try {
         const res = await request('GET', `/sensor/${id}`)        
         set(({            
-            ['name']: res.name,
-            ['unit']: res.unit,
-            ['group_id']: res.group.id
+            'name': res.name,
+            'unit': res.unit,
+            'group_id': res.group.id
         }))
     } catch (e){
         window.location.replace("/sensor")
@@ -106,7 +106,7 @@ function SensorEdit() {
                         ID
                     </Form.Label>
                     <Col sm="10">
-                        <Form.Control plaintext readOnly defaultValue={(id == 'add') ? 'New Sensor':id} />
+                        <Form.Control plaintext readOnly defaultValue={(id === 'add') ? 'New Sensor':id} />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintext">

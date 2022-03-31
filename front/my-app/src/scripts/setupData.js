@@ -100,7 +100,7 @@ async function chartSetup(formData,  setChartData, type='period') {
             for(let i in rawData[key]) {
                 dataset["data"].push(rawData[key][i])               
             } 
-            if (type == 'limit') {
+            if (type === 'limit') {
                 dataset["data"].reverse()
             }
             dataset["borderColor"] = borderColor
