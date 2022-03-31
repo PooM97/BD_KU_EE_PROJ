@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
-
 export default function Popup({show, size='m', onHide, onClick, header, body, buttonMsg, checker}) {
     const [form, setForm] = useState(
         {

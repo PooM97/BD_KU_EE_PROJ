@@ -28,8 +28,7 @@ function Widget({sensor_id, upper, lower, set}) {
             else if (ValueData[sensorData.name][0] < lower && lower !== '') {
                 type='lower'
                 icon = <KeyboardArrowDownOutlinedIcon className="icon"/>    
-            }
-            console.log(sensorData)
+            }            
             setWidgetData(prev => ({
                 ...prev,
                 sensorName: sensorData.name.toUpperCase(),
