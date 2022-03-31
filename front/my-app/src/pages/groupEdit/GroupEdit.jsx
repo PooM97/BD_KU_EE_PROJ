@@ -35,15 +35,15 @@ function GroupEdit() {
             })
         })
     }
-    async function onSubmit() { 
+    async function onSubmit() {
         const error = validation(groupData)
         if (Object.keys(error).length !== 0) {
             setValid(error)
-            return    
-        }     
+            return
+        }
         try {
             const body = { name: groupData.name }
-            if (gname !== 'add') {                
+            if (gname !== 'add') {
                 await request('PUT', `/group/${gname}/update`, undefined, body)
             }
             else {
@@ -52,8 +52,9 @@ function GroupEdit() {
             window.location.replace("/sensor")
         } catch(e) {
             console.log(e)
-        }        
+        }
     }
+
     async function onDelete() {
         try {
             await request('DELETE', `/group/${gname}/drop`)
@@ -66,10 +67,10 @@ function GroupEdit() {
     //validation
     const [valid, setValid] = useState({})
     function validation(value) {
-        const error = {};      
+        const error = {};
         if (!value.name) {
             error.name = "Name is required";
-        }       
+        }
         return error;
     }
   
@@ -80,7 +81,7 @@ function GroupEdit() {
         detail: {header: '', body: '', buttonMsg: ''}
     }
     const [popup, setPopup] = useState(popInit)
-    function handlePopup(header, body, buttonMsg, onPopClick) {   
+    function handlePopup(header, body, buttonMsg, onPopClick) {
         setPopup(
             {
                 ispop: true,
@@ -88,7 +89,7 @@ function GroupEdit() {
                 onClick: onPopClick
             }
         )
-    }    
+    }
     useEffect(() => {
         if (gname !== 'add') {
             requestGroupData(gname, setGroupData)
@@ -116,8 +117,8 @@ function GroupEdit() {
                             placeholder="group name"
                             name="name"
                             value={groupData.name}
-                            onChange={handleOnChange}   
-                            isInvalid={valid.name}                         
+                            onChange={handleOnChange}
+                            isInvalid={valid.name}
                         />
                          <Form.Control.Feedback type="invalid">
                                 {valid.name}
