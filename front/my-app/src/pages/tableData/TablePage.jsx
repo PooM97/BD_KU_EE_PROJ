@@ -3,7 +3,6 @@ import Table from '../../components/table/DataTable'
 import Sidebar from '../../components/sidebar/Sidebar';
 import FormMea from '../../components/formMea/FormMea';
 import { tableSetup } from '../../scripts/setupData';
-import { dateRfc3339 } from '../../scripts/date';
 import { Container } from 'react-bootstrap';
 import './tableData.css';
 

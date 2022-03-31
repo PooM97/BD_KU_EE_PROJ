@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Table from '../../components/table/DataTable'
 import Sidebar from '../../components/sidebar/Sidebar';
-import Popup from '../../components/Popup/Popup';
+import Popup from '../../components/popup/Popup';
 import { usersTableSetup } from '../../scripts/setupData';
 import { request } from '../../scripts/request';
 import './users.css';

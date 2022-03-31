@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Form, Container, Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import Popup from '../../components/Popup/Popup'
+import Popup from '../../components/popup/Popup'
 import { request } from '../../scripts/request'
 
 async function requestGroupData(name, set) {
