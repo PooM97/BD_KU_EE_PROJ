@@ -32,18 +32,4 @@ async function request(method, url, params=undefined, body=undefined, resType="j
     if (resType === "none") return res
 }
 
-const requests = async () => {
-    const response = await fetch(
-        'https://sensors-xxolsllgga-as.a.run.app/ts/period/sensor/23',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'                
-              },
-            body: JSON.stringify({'start': '2022-03-30 18:20:00', 'end': '2022-03-30 18:21:00'})
-        }
-    )
-    console.log(await response.json())    
-}
-requests()
-
 export { request }
