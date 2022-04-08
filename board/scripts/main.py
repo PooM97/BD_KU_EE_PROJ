@@ -29,9 +29,8 @@ class DataManager():
                         print(f"Failed to read {box} channel: {channel}.")
                 payload['timestamp'] = str(datetime.now().replace(microsecond=0))                
                 sleep(0.01) # Delay before changing box.
-            end = time()
-            self.payload_list.append(payload)
-            await asyncio.sleep(self.time_interval-(end-start))
+            self.payload_list.append(payload)            
+            await asyncio.sleep(self.time_interval-(time()-start))
 
     async def requests(self):
         while True:
