@@ -55,4 +55,4 @@ def drop_group(id: int, db: Session = Depends(models.get_db)):
             detail="Group could not be found in the database.")
     db.delete(group)
     db.commit()
-    return {'detail': 'success drop group'}
+    return {'detail': 'Success drop group'}
