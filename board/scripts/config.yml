@@ -13,7 +13,7 @@ boxes:
     address: 1
     channel:
     - ch: 1
-      sensorID: 1
+      sensorID: 25
       display: 1
       input: 7
       pvs: 0
@@ -21,23 +21,11 @@ boxes:
       dp: 1
       c/f: 0
       abs: 0
-      inv: 0
-      inh: null
-      inl: null
+      inv: 0    
       slh: 8500
       sll: 63537
-      alf: 0
-      alh: 0
-      all: 0
-      hys: 0
-      ton: 0
-      toff: 0
-      opr: 0   
-  - name: box2
-    address: 2
-    channel: 
-    - ch: 4
-      sensorID: 2
+    - ch: 2
+      sensorID: 26
       display: 1
       input: 7
       pvs: 0
@@ -45,15 +33,6 @@ boxes:
       dp: 1
       c/f: 0
       abs: 0
-      inv: 0
-      inh: null
-      inl: null
+      inv: 0    
       slh: 8500
       sll: 63537
-      alf: 0
-      alh: 0
-      all: 0
-      hys: 0
-      ton: 0
-      toff: 0
-      opr: 0
