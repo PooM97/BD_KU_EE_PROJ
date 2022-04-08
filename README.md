@@ -1,2 +1,2 @@
-# EE_KU_PROJ
+# EE_PROJ
  
