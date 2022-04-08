@@ -61,18 +61,11 @@ function Sidebar() {
                             <span>Setting</span>
                         </li>
                     </Link>
-                    <p className='title'>USER</p>
-                    
-                    <Link to={"/profile"} style={{ textDecoration: 'none' }}>
-                        <li>
-                            <AccountCircleOutlinedIcon className='icon'/>
-                            <span>Profile</span>
-                        </li>
-                    </Link>
-                        <li onClick={logout}>
-                            <ExitToAppOutlinedIcon className='icon'/>
-                            <span>Logout</span>
-                        </li>
+                    <p className='title'>USER</p>              
+                    <li onClick={logout}>
+                        <ExitToAppOutlinedIcon className='icon'/>
+                        <span>Logout</span>
+                    </li>
                 </ul>
             </div>
         </div>
