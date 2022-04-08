@@ -62,4 +62,4 @@ def drop_sensor(id: int, db: Session = Depends(models.get_db)):
             detail="Sensor could not be found in the database.")
     db.delete(sensor)
     db.commit()
-    return {'detail': 'success drop sensor'}
+    return {'detail': 'Success drop sensor'}
