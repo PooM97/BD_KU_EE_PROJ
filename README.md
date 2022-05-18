@@ -1,2 +1,1 @@
-# EE_PROJ
- 
+# rpi_collect_display_sensor
